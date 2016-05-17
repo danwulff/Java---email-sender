@@ -5,7 +5,9 @@ import static spark.Spark.*;
 
 public class App {
 
-  public static void main (String[] args){
 
+  public static void main (String[] args){
+    System.out.println("initializing timers");
+    new Reminder(1);
   }
 }

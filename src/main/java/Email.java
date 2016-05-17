@@ -10,22 +10,38 @@ public class Email {
 
   }
 
-  public void sendMail(String text) throws Exception{
+  public void sendMailMessage(String text, String emailTo) throws Exception{
 
     SimpleEmail email = new SimpleEmail();
     email.setHostName("smtp.gmail.com");
     email.setSmtpPort(465);
-    email.setAuthenticator(new DefaultAuthenticator("email@gmail.com", "password"));
+    email.setAuthenticator(new DefaultAuthenticator("planet.tracker123@gmail.com", "password"));
     email.setSSLOnConnect(true);
-    email.setFrom("email@gmail.com", "name");
-    email.setSubject("Test message");
+    email.setFrom("planet.tracker123@gmail.com", "Planet Tracker");
+    email.setSubject("Planet Tracker email");
     email.setMsg(text);
-    email.addTo("another@email.com");
+    email.addTo(emailTo);
 
-    email.setDebug(true);
+    // email.setDebug(true);
 
     email.send();
+  }
 
+  public void sendTextMessage(String text, String emailTo) throws Exception{
+
+    SimpleEmail email = new SimpleEmail();
+    email.setHostName("smtp.gmail.com");
+    email.setSmtpPort(465);
+    email.setAuthenticator(new DefaultAuthenticator("planet.tracker123@gmail.com", "password"));
+    email.setSSLOnConnect(true);
+    email.setFrom("planet.tracker123@gmail.com", "Planet Tracker");
+    email.setSubject("Planet Tracker Text");
+    email.setMsg(text);
+    email.addTo(emailTo);
+
+    // email.setDebug(true);
+
+    email.send();
   }
 
 }
