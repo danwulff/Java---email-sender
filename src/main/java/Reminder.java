@@ -19,6 +19,7 @@ public class Reminder {
 
         //create planet objects based on what time it is
 
+
         //gets planet info and creates string for emailing/text
 
         //sends text message to each user in database
