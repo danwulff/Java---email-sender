@@ -9,17 +9,15 @@ public class App {
 
 
   public static void main (String[] args){
-    System.out.println("startup");
+    System.out.println("startup...");
+
+    //Create Message object
+    PlanetMessage myMessage = new PlanetMessage("planet.tracker123@gmail.com", args[0]);
 
     //Messaging Service
     System.out.println("initializing messaging service");
-    //sends email every 1 minute, passes password from gradle build prompt
-    MessageService messageService = new MessageService(1, args[0]);
+    //sends PlanetMessage email every 1 minute
+    MessageService messageService = new MessageService(myMessage, Integer.valueOf(args[1]), 60);
 
-    //system time testing
-    /*System.out.println("Current time in milliseconds = ");
-    System.out.println(System.currentTimeMillis());
-    DateTime currentDateTime = new DateTime(System.currentTimeMillis());
-    System.out.println(currentDateTime.getSimpleDateTime());*/
   }
 }

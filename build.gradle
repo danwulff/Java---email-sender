@@ -24,5 +24,11 @@ run {
   def pass = System.console().readPassword("\nPlease enter password for planet.tracker123@gmail.com: ")
   //convert password to string
   pass = new String(pass)
-  args pass
+
+  //prompt for service delay
+  def delay = System.console().readLine("Please enter amount of minutes to delay before sending messages: ")
+  //convert password to string
+  delay = new String(delay)
+
+  args pass, delay
 }

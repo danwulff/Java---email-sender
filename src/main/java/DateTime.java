@@ -28,6 +28,10 @@ public class DateTime {
     return String.valueOf(year) + "-" + this.convertMonthToString() + "-" + this.addZeroToDatesLessThanTen() + " " + String.valueOf(hour) + ":" + String.valueOf(minute);
   }
 
+  public String getSimpleDateTimeRoundedDown() {
+    return String.valueOf(year) + "-" + this.convertMonthToString() + "-" + this.addZeroToDatesLessThanTen() + " " + String.valueOf(hour) + ":00";
+  }
+
   //covert month number to string
   private String convertMonthToString() {
     if (month == 0) {
