@@ -5,19 +5,23 @@ import org.apache.commons.mail.*;
 
 
 public class Email {
+  private String fromEmailAddress;
+  private String fromEmailPassword;
 
-  public void email() {
-
+  public Email(String fromEmailAddress, String fromEmailPassword) {
+    this.fromEmailAddress = fromEmailAddress;
+    this.fromEmailPassword = fromEmailPassword;
   }
+
 
   public void sendMailMessage(String text, String emailTo) throws Exception{
 
     SimpleEmail email = new SimpleEmail();
     email.setHostName("smtp.gmail.com");
     email.setSmtpPort(465);
-    email.setAuthenticator(new DefaultAuthenticator("planet.tracker123@gmail.com", "password"));
+    email.setAuthenticator(new DefaultAuthenticator(this.fromEmailAddress, this.fromEmailPassword));
     email.setSSLOnConnect(true);
-    email.setFrom("planet.tracker123@gmail.com", "Planet Tracker");
+    email.setFrom(this.fromEmailAddress, "Planet Tracker");
     email.setSubject("Planet Tracker email");
     email.setMsg(text);
     email.addTo(emailTo);
@@ -32,9 +36,9 @@ public class Email {
     SimpleEmail email = new SimpleEmail();
     email.setHostName("smtp.gmail.com");
     email.setSmtpPort(465);
-    email.setAuthenticator(new DefaultAuthenticator("planet.tracker123@gmail.com", "password"));
+    email.setAuthenticator(new DefaultAuthenticator(this.fromEmailAddress, this.fromEmailPassword));
     email.setSSLOnConnect(true);
-    email.setFrom("planet.tracker123@gmail.com", "Planet Tracker");
+    email.setFrom(this.fromEmailAddress, "Planet Tracker");
     email.setSubject("Planet Tracker Text");
     email.setMsg(text);
     email.addTo(emailTo);
